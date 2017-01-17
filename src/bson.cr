@@ -17,7 +17,7 @@ class BSON
     initialize LibBSON.bson_new
   end
 
-  def finalize
+  def finalize_data
     LibBSON.bson_destroy(@handle) if @valid
   end
 
@@ -40,7 +40,7 @@ class BSON
   end
 
   protected def invalidate
-    finalize
+    finalize_data
     @valid = false
   end
 
